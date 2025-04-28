@@ -5,8 +5,8 @@ import CrmHeader from "@/components/CrmHeader";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
-  title: "B.C. Trees",
-  description: "Website for B.C. Trees tree removal service",
+  title: "CRM-Lite",
+  description: "lite CRM for managing jobs, bids, and clients",
 };
 
 const montserrat = Montserrat({

@@ -10,7 +10,7 @@ type Props = {
 export default function AddJobButton({ id, className }: Props) {
 
     function addJob() {
-        redirect(`/dashboard/new-job/${id}`)
+        redirect(`/new-job/${id}`)
     }
 
     return (

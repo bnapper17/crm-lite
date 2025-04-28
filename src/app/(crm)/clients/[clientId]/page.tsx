@@ -19,7 +19,7 @@ export default async function ClientPage({ params }: { params: Promise<{ clientI
                 <ClientForm client={client} newClient={false}/>
                 <div className="mt-4">
                     {clientJobs.map((job) => (
-                        <Link href={`/dashboard/jobs/${job.id}`} key={job.id}>
+                        <Link href={`/jobs/${job.id}`} key={job.id}>
                             <div className="p-4 border-t border-gray-700">
                                 <h2>{job.title}</h2>
                                 <div className="flex justify-between">

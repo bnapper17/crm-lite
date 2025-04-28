@@ -17,7 +17,7 @@ export default function ClientCard({ name, phone, email, city, address, id}: Pro
     return(
         <div className="flex justify-between items-center p-4 w-xs md:w-md xl:w-xl mb-6 bg-back shadow-lg rounded-md">
             <div className="flex flex-col gap-2 ">
-                <Link href={`/dashboard/clients/${id}`}>
+                <Link href={`/clients/${id}`}>
                         <h2 className="text-2xl md:text-3xl text-two">{name}</h2>
                 </Link>
             </div>
