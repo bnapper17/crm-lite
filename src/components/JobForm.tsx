@@ -6,11 +6,14 @@ import { insertJobsSchema, type insertJobsSchemaType, type selectJobsSchemaType 
 import { Form } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"
+
+import { SwitchWithLabel } from "@/components/inputs/SwitchWithLabel"
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 import { useAction } from "next-safe-action/hooks"
 import { saveJobAction } from "@/app/actions/saveJobAction"
+import { useRouter } from "next/navigation"
 
 import { type selectClientSchemaType } from "@/zod-schemas/client"
 
@@ -23,6 +26,8 @@ type Props = {
 
 export default function JobForm({ client, job }: Props) {
 
+    const router = useRouter()
+
     const defaultValues: insertJobsSchemaType = {
             id: job?.id ?? 0,
             clientId: client?.id ?? 0,
@@ -32,6 +37,7 @@ export default function JobForm({ client, job }: Props) {
             bidAmount: job?.bidAmount ?? '',
             bidAccepted: job?.bidAccepted ?? false,
             completed: job?.completed ?? false,
+            archived: job?.archived ?? false,
         }
     
     const form = useForm<insertJobsSchemaType>({
@@ -54,13 +60,22 @@ export default function JobForm({ client, job }: Props) {
         })
 
     function submitForm(data: insertJobsSchemaType) {
-            console.log(data)
+
             saveJob(data)
+            router.push(`/dashboard/clients/${client?.id}`)
         }
 
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(submitForm)}>
+                <div className={job ? "" : "hidden"}>
+                    <SwitchWithLabel
+                        fieldTitle ="Archive Job"
+                        nameInSchema ="archived"
+                        className ="flex justify-end text-two"
+                        isActive = {false}
+                    />
+                </div>
                 <JobFields />
                 <div>
                 <Button 
