@@ -18,7 +18,7 @@ export async function getCompletedBids() {
     })
     .from(jobs)
     .leftJoin(clients, eq(jobs.clientId, clients.id))
-    .where(and(eq(jobs.bidCompleted, true), eq(jobs.bidAccepted, false)))
+    .where(and(eq(jobs.bidCompleted, true), eq(jobs.bidAccepted, false), eq(jobs.archived, false)))
     .orderBy(asc(jobs.createdAt))
     return results
 }
