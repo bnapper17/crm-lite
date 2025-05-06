@@ -27,7 +27,7 @@ export const saveClientAction = actionClient
                 state: client.state,
                 zip: client.zip,
                 notes: client.notes,
-                estimateGiven: client.estimateGiven,
+                archived: false,
             }).returning({ insertedId: clients.id })
 
             return{ message: `${client.firstName} ${client.lastName} added successfully! ID: ${result[0].insertedId}`}
@@ -44,7 +44,7 @@ export const saveClientAction = actionClient
             state: client.state,
             zip: client.zip,
             notes: client.notes,
-            estimateGiven: client.estimateGiven,
+            archived: client.archived,
         })
         .where(eq(clients.id, client.id!))
         .returning({ updatedId: clients.id})
