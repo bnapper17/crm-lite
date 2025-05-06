@@ -5,6 +5,8 @@ import { insertClientSchema, type insertClientSchemaType, type selectClientSchem
 import { Form } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"
+
+import { SwitchWithLabel } from "@/components/inputs/SwitchWithLabel"
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -14,9 +16,10 @@ import { saveClientAction } from "@/app/actions/saveClientAction"
 type Props = {
     client?: selectClientSchemaType
     newClient?: boolean
+    jobs?: object[]
 }
 
-export default function ClientForm({ client, newClient= true }: Props) {
+export default function ClientForm({ client, newClient = true, jobs }: Props) {
 
     const defaultValues: insertClientSchemaType = {
         id: client?.id ?? 0,
@@ -29,6 +32,7 @@ export default function ClientForm({ client, newClient= true }: Props) {
         state: client?.state ?? "",
         zip: client?.zip ?? "",
         notes: client?.notes ?? "",
+        archived: client?.archived ?? false,
     }
 
     const form = useForm<insertClientSchemaType>({
@@ -66,6 +70,14 @@ export default function ClientForm({ client, newClient= true }: Props) {
                         className="w-full text-two border border-one shadow-lg hover:bg-one hover:text-white active:shadow-none active:text-xs mt-4 cursor-pointer"
                     >Submit
                     </Button>
+                </div>
+                <div className={newClient ? "hidden" : ""}>
+                    <SwitchWithLabel
+                        fieldTitle="Archive Client"
+                        nameInSchema="archived"
+                        className="flex text-two mt-4 justify-end"
+                        isActive={jobs && jobs.length > 0 ? true : false}
+                    />
                 </div>
             </form>
         </Form>

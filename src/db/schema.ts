@@ -1,6 +1,7 @@
 import { pgTable, serial, varchar, boolean, timestamp, integer, text } from "drizzle-orm/pg-core"
 import { relations } from "drizzle-orm"
 
+
 export const clients = pgTable("clients", {
     id: serial("id").primaryKey(),
     firstName: varchar("first_name").notNull(),
@@ -12,7 +13,7 @@ export const clients = pgTable("clients", {
     state: varchar("state", { length: 2}),
     zip: varchar("zip", { length: 10 }),
     notes: text("notes"),
-    estimateGiven: boolean("estimate_given").notNull().default(false),
+    archived: boolean("archived").notNull().default(false),
     createdAt: timestamp("created_at").notNull().defaultNow(),
     updatedAt: timestamp("updated_at").notNull().defaultNow().$onUpdate(() => new Date())
 })
@@ -27,7 +28,8 @@ export const jobs = pgTable("jobs", {
     notes: text("notes"),
     createdAt: timestamp("created_at").notNull().defaultNow(),
     updatedAt: timestamp("updated_at").notNull().defaultNow().$onUpdate(() => new Date()),
-    completed: boolean("completed").notNull().default(false)
+    completed: boolean("completed").notNull().default(false),
+    archived: boolean("archived").notNull().default(false),
 })
 
 //table relations

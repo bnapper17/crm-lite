@@ -1,4 +1,3 @@
-
 import JobForm from "@/components/JobForm"
 import { getJob } from "@/lib/queries/getJob"
 import { getClient } from "@/lib/queries/getClient"
@@ -15,7 +14,7 @@ export default async function JobPage({ params }: {params: Promise<{jobId: strin
     return (
         <div className="flex flex-col items-center justify-between xl:justify-around bg-dark-back p-6">
             <div className="flex flex-col gap-4 p-4 bg-back shadow-lg rounded-md w-sm lg:w-xl">
-                <Link href={`/clients/${client.id}`} >
+                <Link href={`/dashboard/clients/${client.id}`} >
                     <h2 className="text-two text-3xl">{`${client.firstName} ${client.lastName}`}</h2>
                 </Link>
                 <p className="text-xl">{client.phone}</p>

@@ -1,1 +1,0 @@
-ALTER TABLE "jobs" ALTER COLUMN "bid_amount" SET DATA TYPE varchar;

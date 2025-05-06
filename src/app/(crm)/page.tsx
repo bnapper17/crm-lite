@@ -9,6 +9,8 @@ import { getCompletedBids } from "@/lib/queries/getCompletedBids"
 import { getOpenJobs } from "@/lib/queries/getOpenJobs"
 import { getCompletedJobs } from "@/lib/queries/getCompletedJobs"
 import { getNewClients } from "@/lib/queries/getNewClients"
+import { getArchivedClients } from "@/lib/queries/getArchivedClients"
+import { getArchivedJobs } from "@/lib/queries/getArchivedJobs"
 
 export default async function DashboardPage({ searchParams }: { searchParams: Promise<{ [key: string]: string | undefined }> } ) {
 
@@ -19,10 +21,12 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
     const completedJobs = await getCompletedJobs()
     const clients = await getClientList()
     const newClients = await getNewClients()
+    const archivedClients = await getArchivedClients()
+    const archivedJobs = await getArchivedJobs()
     
     if(!searchText) return(
         <div className="min-h-lvh bg-dark-back">            
-            <Dashboard newClients={newClients} completedBids={completedBids} openJobs={openJobs} completedJobs={completedJobs} clients={clients}/>
+            <Dashboard newClients={newClients} completedBids={completedBids} openJobs={openJobs} completedJobs={completedJobs} clients={clients} archivedClients={archivedClients} archivedJobs={archivedJobs}/>
         </div>
     )
 
@@ -30,7 +34,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
     return(
         <div className="flex justify-between xl:justify-around p-6 bg-dark-back">
-            <div className="bg-dark-back h-lvh">
+            <div className="bg-dark-back min-h-lvh">
                 <SearchForm searchType="jobs" className="mb-4 lg:mb-10" />
                 {searchResults.map((result) => (
                     <JobCard 
@@ -40,6 +44,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
                     email={result.email}
                     phone={result.phone}
                     address={`${result.address1}, ${result.city}, ${result.state} ${result.zip}`}
+                    city={result.city}
                     id = {result.id.toString()}
                     createdAt={result.requestDate}
                     />

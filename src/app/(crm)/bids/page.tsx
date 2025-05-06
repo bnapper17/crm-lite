@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 export default async function BidsPage() {
     const results = await getCompletedBids()
     return(
-        <div className="flex justify-between xl:justify-around bg-dark-back h-lvh p-6">
+        <div className="flex justify-between xl:justify-around bg-dark-back min-h-lvh p-6">
             <div>
                 {results.map((result) => (
                     <JobCard 

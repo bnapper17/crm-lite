@@ -1,1 +1,0 @@
-ALTER TABLE "jobs" ADD COLUMN "completed" boolean DEFAULT false NOT NULL;

@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic'
 export default async function RequestsPage() {
     const results = await getCompletedJobs()
     return(
-        <div className="bg-dark-back p-6 h-lvh">
+        <div className="bg-dark-back p-6 min-h-lvh">
             {results.map((result) => (
                 <JobCard 
                     key={result.id} 
