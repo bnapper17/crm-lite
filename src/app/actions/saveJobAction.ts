@@ -25,6 +25,7 @@ export const saveJobAction = actionClient
                 bidCompleted: job.bidAmount ? true : false,
                 bidAccepted: job.bidAccepted,
                 completed: job.completed,
+                archived: false
 
             }).returning({ insertedId: jobs.id })
 
@@ -40,6 +41,7 @@ export const saveJobAction = actionClient
                 bidCompleted: job.bidAmount ? true : false,
                 bidAccepted: job.bidAccepted,
                 completed: job.completed,
+                archived: job.archived
         })
         .where(eq(jobs.id, job.id!))
         .returning({ updatedId: jobs.id})
