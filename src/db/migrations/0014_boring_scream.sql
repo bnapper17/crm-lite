@@ -1,0 +1,1 @@
+ALTER TABLE "clients" ADD COLUMN "wood_client" boolean DEFAULT false NOT NULL;

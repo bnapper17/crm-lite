@@ -1,0 +1,1 @@
+ALTER TABLE "clients" ADD COLUMN "estimate_given" boolean DEFAULT false NOT NULL;
