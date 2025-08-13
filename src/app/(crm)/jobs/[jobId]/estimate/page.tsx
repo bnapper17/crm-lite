@@ -1,7 +1,7 @@
 import { getJob } from "@/lib/queries/getJob"
 import { getClient } from "@/lib/queries/getClient"
-import company_logo from "@/../public/images/logo.png"
-import Image from "next/image";
+// import company_logo from "@/../public/images/logo.png"
+// import Image from "next/image";
 import SignatureComponent from "@/components/SignatureComponent";
 
 
