@@ -11,7 +11,7 @@ type Props ={
 export default function SearchForm({ searchType, className, placeholder } : Props) {
     return (
         <Form
-            action={`/dashboard${searchType}`}
+            action={`${searchType}`}
             className={`flex gap-2 items-center w-xs lg:w-md xl:w-xl ${className}`}
         >
             <Input

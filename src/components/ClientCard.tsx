@@ -21,7 +21,7 @@ export default function ClientCard({ name, business, phone, email, city, address
         <div className="p-4 w-xs md:w-md xl:w-xl mb-6 bg-back shadow-lg rounded-md">
             <div className="flex justify-between items-center">
                 <div>
-                    <Link href={`/dashboard/clients/${id}`}>
+                    <Link href={`/clients/${id}`}>
                             <h2 className="text-2xl md:text-3xl text-two">{name}</h2>
                             {business && <h3 className="text-one text-xl mt-2">{business}</h3>}
                     </Link>

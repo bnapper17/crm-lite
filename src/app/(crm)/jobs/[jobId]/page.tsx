@@ -27,7 +27,7 @@ export default async function JobPage({ params }: {params: Promise<{jobId: strin
         <div className="min-h-lvh flex flex-col items-center bg-dark-back pt-6">
             <div className="flex flex-col gap-4 p-4 bg-back shadow-lg rounded-md w-sm lg:w-xl">
                 <div className="flex justify-between">
-                    <Link href={`/dashboard/clients/${client.id}`} >
+                    <Link href={`/clients/${client.id}`} >
                         <h2 className="text-two text-3xl">{`${client.firstName} ${client.lastName}`}</h2>
                     </Link>
                     <Dialog>

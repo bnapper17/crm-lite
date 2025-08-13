@@ -25,14 +25,14 @@ export default function Dashboard({ completedBids, openJobs, completedJobs, clie
         <div  className="flex justify-between xl:justify-around bg-dark-back p-6">
             <div>
                 <SearchForm searchType="/" placeholder="Jobs" className="mb-4 lg:mb-10 md:w-144"/>
-                <Card title={"Add New Job:"} description={"Select to add new job"} url={"/dashboard/new-job"} className="md:hidden" />
-                <Card title={"New Requests:"} description={`${totalRequests.toString()} new requests`} url={"/dashboard/requests"} />
-                <Card title={"Completed Bids:"} description={`${completedBids.length.toString()} bids completed`} url={"/dashboard/bids"} />
-                <Card title={"Open Jobs:"} description={`${openJobs.length.toString()} open jobs`} url={"/dashboard/jobs"} />
-                <Card title={"Clients:"} description={`${clients.length.toString()} clients`} url={"/dashboard/clients"} />
-                <Card title={"Completed Jobs:"} description={`${completedJobs.length.toString()} jobs completed`} url={"/dashboard/completed"} />
-                <Card title={"Drop Requests:"} description={`${chipClients.length.toString()} chip requests`} description2={`${woodClients.length.toString()} wood requests`} url={"/dashboard/drop"} />
-                <Card title={"Archive:"} description={`${archivedClients.length.toString()} clients archived`} description2={`${archivedJobs.length.toString()} jobs archived`} url={"/dashboard/archive"} />
+                <Card title={"Add New Job:"} description={"Select to add new job"} url={"/new-job"} className="md:hidden" />
+                <Card title={"New Requests:"} description={`${totalRequests.toString()} new requests`} url={"/requests"} />
+                <Card title={"Completed Bids:"} description={`${completedBids.length.toString()} bids completed`} url={"/bids"} />
+                <Card title={"Open Jobs:"} description={`${openJobs.length.toString()} open jobs`} url={"/jobs"} />
+                <Card title={"Clients:"} description={`${clients.length.toString()} clients`} url={"/clients"} />
+                <Card title={"Completed Jobs:"} description={`${completedJobs.length.toString()} jobs completed`} url={"/completed"} />
+                <Card title={"Drop Requests:"} description={`${chipClients.length.toString()} chip requests`} description2={`${woodClients.length.toString()} wood requests`} url={"/drop"} />
+                <Card title={"Archive:"} description={`${archivedClients.length.toString()} clients archived`} description2={`${archivedJobs.length.toString()} jobs archived`} url={"/archive"} />
             </div>
             <div className="hidden md:block p-4 bg-back shadow-lg rounded-md text-two h-fit w-sm lg:w-md xl:w-xl">
                 <div>

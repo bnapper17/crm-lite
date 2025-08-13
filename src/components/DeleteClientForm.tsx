@@ -65,7 +65,7 @@ export default function DeleteJobForm({ client}: Props) {
 
     function submitForm(data: insertClientSchemaType) {
             deleteClient(data)
-            router.push(`/dashboard/clients`)
+            router.push(`/clients`)
         }
 
     return (

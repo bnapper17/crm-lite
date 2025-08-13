@@ -47,42 +47,42 @@ export default function AnimatedHamburger() {
                 </DrawerHeader>
                     <div className="flex flex-col justify-evenly gap-10 mt-20 ml-10 text-3xl text-two font-semibold md:mr-8">
                         <DrawerClose asChild>
-                            <Link href="/dashboard" title="Dashboard">
+                            <Link href="/" title="Dashboard">
                                 <h2 className=" hover:underline">Dashboard</h2>
                             </Link>
                         </DrawerClose>
                         <DrawerClose asChild>
-                            <Link href="/dashboard/new-job" title="Add Job">
+                            <Link href="/new-job" title="Add Job">
                                 <h2 className=" hover:underline">Add Job</h2>
                             </Link>
                         </DrawerClose>
                         <DrawerClose asChild>
-                            <Link href="/dashboard/requests" title="Requests">
+                            <Link href="/requests" title="Requests">
                                 <h2 className=" hover:underline">Requests</h2>
                             </Link>
                         </DrawerClose>
                         <DrawerClose asChild>
-                            <Link href="/dashboard/bids" title="Bids">
+                            <Link href="/bids" title="Bids">
                                 <h2 className=" hover:underline">Bids</h2>
                             </Link>
                         </DrawerClose>
                         <DrawerClose asChild>
-                            <Link href="/dashboard/jobs" title="Jobs">
+                            <Link href="/jobs" title="Jobs">
                                 <h2 className=" hover:underline">Jobs</h2>
                             </Link>
                         </DrawerClose>
                         <DrawerClose asChild>
-                            <Link href="/dashboard/clients" title="Clients">
+                            <Link href="/clients" title="Clients">
                                 <h2 className=" hover:underline">Clients</h2>
                             </Link>
                         </DrawerClose>
                         <DrawerClose asChild>
-                            <Link href="/dashboard/completed" title="Completed">
+                            <Link href="/completed" title="Completed">
                                 <h2 className=" hover:underline">Completed Jobs</h2>
                             </Link>
                         </DrawerClose>
                         <DrawerClose asChild>
-                            <Link href="/dashboard/drop" title="Drop">
+                            <Link href="/drop" title="Drop">
                                 <h2 className=" hover:underline">Drop</h2>
                             </Link>
                         </DrawerClose>

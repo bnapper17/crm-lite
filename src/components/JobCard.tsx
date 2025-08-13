@@ -25,7 +25,7 @@ export default function JobCard({ name, business, title, bid, phone, email, addr
     return(
         <div className="p-4 w-xs md:w-md xl:w-xl mb-6 bg-back shadow-lg rounded-md cursor-pointer">
             <div className="flex justify-between items-center ">
-                <Link href={`/dashboard/jobs/${id}`}>
+                <Link href={`/jobs/${id}`}>
                     <div className="flex flex-col gap-2 ">
                             <h2 className="text-2xl md:text-3xl text-two">{name}</h2>
                             {business && <h3 className="text-one text-xl mt-2">{business}</h3>}

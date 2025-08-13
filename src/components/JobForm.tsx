@@ -65,7 +65,7 @@ export default function JobForm({ client, job }: Props) {
     function submitForm(data: insertJobsSchemaType) {
 
             saveJob(data)
-            router.push(`/dashboard/clients/${client?.id}`)
+            router.push(`/clients/${client?.id}`)
         }
 
     return (
