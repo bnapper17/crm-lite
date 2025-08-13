@@ -20,9 +20,9 @@ import { useAction } from "next-safe-action/hooks"
 // Purpose: Aligns with the new server action that only requires jobId and signatureDataUrl.
 import { saveSignatureAction } from "@/app/actions/saveSignatureAction"
 import { toast } from "sonner"
-import { insertJobsSchemaType } from "@/zod-schemas/job"
+import { updateSignatureSchemaType } from "@/zod-schemas/signature"
 
-export default function SignatureComponent(job: insertJobsSchemaType) {
+export default function SignatureComponent(job: updateSignatureSchemaType) {
   
   const sigCanvas = useRef<SignatureCanvas>(null)
   const [dataUrl, setDataUrl] = useState(job.signature)
@@ -65,7 +65,7 @@ export default function SignatureComponent(job: insertJobsSchemaType) {
     }
     const dataUrl = sigCanvas.current.getCanvas().toDataURL('image/png')
     setDataUrl(dataUrl)
-    saveSignature({ jobId: job.id, signatureDataUrl: dataUrl })
+    saveSignature({ id: job.id, signature: dataUrl })
     setOpenDrawer(false)
     sigCanvas.current.clear()
   }
@@ -94,7 +94,7 @@ export default function SignatureComponent(job: insertJobsSchemaType) {
             </DrawerTrigger>
             <DrawerContent>
               <DrawerHeader>
-                <DrawerTitle>{job.title}</DrawerTitle>
+                <DrawerTitle>Signature</DrawerTitle>
                 <DrawerDescription>Sign here to indicate that you accept the terms of the esitmate.</DrawerDescription>
               </DrawerHeader>
               <div>
