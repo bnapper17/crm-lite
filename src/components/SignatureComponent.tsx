@@ -25,7 +25,7 @@ import { insertJobsSchemaType } from "@/zod-schemas/job"
 export default function SignatureComponent(job: insertJobsSchemaType) {
   
   const sigCanvas = useRef<SignatureCanvas>(null)
-  const [trimmedDataUrl, setTrimmedDataUrl] = useState(job.signature)
+  const [dataUrl, setDataUrl] = useState(job.signature)
   const [openDrawer, setOpenDrawer] = useState(false)
   
   const handleDrawer = () => {
@@ -63,8 +63,8 @@ export default function SignatureComponent(job: insertJobsSchemaType) {
       toast.error("Job ID is missing");
       return;
     }
-    const dataUrl = sigCanvas.current.getTrimmedCanvas().toDataURL('image/png')
-    setTrimmedDataUrl(dataUrl)
+    const dataUrl = sigCanvas.current.getCanvas().toDataURL('image/png')
+    setDataUrl(dataUrl)
     saveSignature({ jobId: job.id, signatureDataUrl: dataUrl })
     setOpenDrawer(false)
     sigCanvas.current.clear()
@@ -77,11 +77,11 @@ export default function SignatureComponent(job: insertJobsSchemaType) {
         <div className="min-w-1/2">
           <div className="flex gap-2 max-w-3/4">
             <p className="lg:text-2xl mt- text-nowrap">Accpted By:</p>
-            {trimmedDataUrl ? <img alt='signature' src={trimmedDataUrl}/> : null}
+            {dataUrl ? <img alt='signature' src={dataUrl}/> : null}
           </div>
           <div className="flex gap-2">
             <p className="lg:text-2xl mt-2">Accepted Date:</p>
-            {trimmedDataUrl ? <p className="lg:text-2xl mt-2">{new Date().toLocaleString('en-US', {year: 'numeric', month:'long', day:'numeric'}).toString()}</p> : null}
+            {dataUrl ? <p className="lg:text-2xl mt-2">{new Date().toLocaleString('en-US', {year: 'numeric', month:'long', day:'numeric'}).toString()}</p> : null}
           </div>
         </div>
 
