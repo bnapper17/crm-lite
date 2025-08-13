@@ -119,7 +119,7 @@ export default function JobForm({ client, job }: Props) {
                         className="w-1/3 text-two border border-one shadow-lg hover:bg-one hover:text-white active:shadow-none active:text-xs mt-4 cursor-pointer"
                     >Update
                     </Button>
-                    <Link href={`/dashboard/jobs/${job.id}/estimate`} className="w-1/3">
+                    <Link href={`/jobs/${job.id}/estimate`} className="w-1/3">
                         <Button 
                             variant="ghost"
                             className="w-full text-two border border-one shadow-lg hover:bg-one hover:text-white active:shadow-none active:text-xs mt-4 cursor-pointer"
