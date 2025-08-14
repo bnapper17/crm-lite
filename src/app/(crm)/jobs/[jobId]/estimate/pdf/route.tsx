@@ -9,6 +9,8 @@ export async function  GET(request: Request, { params }: { params: Promise<{jobI
   const job = await getJob(Number(jobId))
   const client = await getClient(job.clientId)
 
+   const logoPath = process.env.NODE_ENV === 'production' ? '/images/logo.png' : 'public/images/logo.png';
+
   const styles = StyleSheet.create({
     header: {
       display: 'flex',
@@ -76,7 +78,7 @@ export async function  GET(request: Request, { params }: { params: Promise<{jobI
         <View style={styles.header}>
           <View style={{width: "5cm", height: "5cm"}}>
             <Image
-              src="public/images/logo.png"
+              src={logoPath}
               />
           </View>
           <View style={{display: 'flex', flexDirection: 'column', gap: '3mm'}}>
