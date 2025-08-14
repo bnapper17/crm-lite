@@ -76,7 +76,7 @@ export async function  GET(request: Request, { params }: { params: Promise<{jobI
         <View style={styles.header}>
           <View style={{width: "5cm", height: "5cm"}}>
             <Image
-              src="@/../public/images/logo.png"
+              src="public/images/logo.png"
               />
           </View>
           <View style={{display: 'flex', flexDirection: 'column', gap: '3mm'}}>
