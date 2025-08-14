@@ -48,7 +48,7 @@ export default function SignatureComponent(job: updateSignatureSchemaType) {
             },
             onError({ error }) {
                 console.log(error)
-                toast.error("Save Failed")
+                toast.error("Failed to accept signature")
             }
         })
 
